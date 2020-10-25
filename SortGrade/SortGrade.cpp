@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS //struct function loop2loop expression
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -82,6 +82,7 @@ jumper:
 			printf("\n%s \tScore : %d \tGrade : %c", persons[k].name, persons[k].score,persons[k].grade);
 			
 		}
+	
 	}
 	else {
 		goto jumper;
