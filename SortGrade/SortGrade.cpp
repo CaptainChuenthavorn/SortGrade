@@ -8,13 +8,14 @@ struct PERSON {
 	char grade;
 	int pos;//Position
 	char tempName[50]; 
+
 };
 int main() {
 	struct PERSON* persons;
 	int n,choice; //choice 1 = sort by name ,choice 2 = sort by score 
-	int i, j, temp,compare;
-	printf("Grade calculator");
-	printf("How many students you have ? \n");
+	int i, j, temp,compare,tempGrade;
+	printf("Grade calculator!!");
+	printf("\nHow many students you have ?  ");
 	scanf("%d", &n);
 	persons = (struct PERSON*)malloc(n * sizeof(struct PERSON));
 	for (int i = 0;i < n;i++) {
@@ -45,7 +46,7 @@ int main() {
 
 	}
 jumper:
-	printf("\nchoice 1 = sort by name ,choice 2 = sort by score ");
+	printf("\nchoice 1 = sort by name ,choice 2 = sort by score(min -> max) ");
 	scanf("%d", &choice);
 	if (choice == 1) {
 		for (i = 0;i < n;i++) {
@@ -58,6 +59,10 @@ jumper:
 					temp = persons[i].score;
 					persons[i].score = persons[j].score;
 					persons[j].score = temp;
+					tempGrade = persons[i].grade;
+					persons[i].grade = persons[j].grade;
+					persons[j].grade = tempGrade;
+					
 				}
 			}
 		}
@@ -75,11 +80,14 @@ jumper:
 					strcpy(persons[i].tempName, persons[i].name);
 					strcpy(persons[i].name, persons[j].name);
 					strcpy(persons[j].name, persons[i].tempName);
+					tempGrade = persons[i].grade;
+					persons[i].grade = persons[j].grade;
+					persons[j].grade = tempGrade;
 				}
 			}
 		}
 		for (int k = 0;k < n;k++) {
-			printf("\n%s \tScore : %d \tGrade : %c", persons[k].name, persons[k].score,persons[k].grade);
+			printf("\n\t%s\tScore : %d \tGrade : %c", persons[k].name, persons[k].score,persons[k].grade);
 			
 		}
 	
